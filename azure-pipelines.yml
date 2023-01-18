@@ -38,7 +38,7 @@ steps:
 - script: 'curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b ..\syft\'
   displayName: 'Install Syft'
 
-- script: ..\syft2\syft . -o json=sbom.syft.json -o spdx-json=sbom.spdx.json
+- script: '..\syft\syft . -o json=sbom.syft.json -o spdx-json=sbom.spdx.json'
   displayName: 'Create Syft SBOMs'
 
 - task: NuGetCommand@2
