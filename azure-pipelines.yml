@@ -41,8 +41,10 @@ steps:
     script: |
       curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b ..\syft\
 
-- script: '..\syft2\syft . -o json=sbom.syft.json -o spdx-json=sbom.spdx.json'
+- task: DotNetCoreCLI@2
     displayName: 'Create Syft SBOMs'
+    inputs:
+      script: '..\syft2\syft . -o json=sbom.syft.json -o spdx-json=sbom.spdx.json'
 
 - task: NuGetCommand@2
   displayName: 'Publish NuGet package'
