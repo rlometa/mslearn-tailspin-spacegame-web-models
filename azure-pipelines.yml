@@ -44,7 +44,7 @@ steps:
 - task: DotNetCoreCLI@2
     displayName: 'Create Syft SBOMs'
     inputs:
-      script: '..\syft2\syft . -o json=sbom.syft.json -o spdx-json=sbom.spdx.json'
+      script: ..\syft2\syft . -o json=sbom.syft.json -o spdx-json=sbom.spdx.json
 
 - task: NuGetCommand@2
   displayName: 'Publish NuGet package'
