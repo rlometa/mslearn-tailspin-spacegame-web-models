@@ -38,7 +38,7 @@ steps:
 - script: 'curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b .'
   displayName: 'Install Syft $(Build.ArtifactStagingDirectory)/'
 
-- script: './syft . -o json=$(Build.ArtifactStagingDirectory)/sbom.syft.json -o spdx-json=$(Build.ArtifactStagingDirectory)/sbom.spdx.json'
+- script: './syft . -o json=$(Build.ArtifactStagingDirectory)/sbom.syft.json -o cyclonedx-json=$(Build.ArtifactStagingDirectory)/$(Build.DefinitionName)-$(Build.BuildId)-$(Build.BuildNumber)-sbom.cyclonedx.json -o spdx-json=$(Build.ArtifactStagingDirectory)/sbom.spdx.json'
   displayName: 'Create Syft SBOMs'
 
 - task: NuGetCommand@2
